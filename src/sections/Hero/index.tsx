@@ -79,8 +79,9 @@ const HeroWrapper = styled(SectionWrapper)`
   max-width: 100%;
   overflow: hidden;
   background-image: url(${Shanghai});
-  background-size: auto 100vh;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   opacity: 80%;
 
   ${props => props.theme.mediaQueries.tablet`
