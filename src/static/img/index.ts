@@ -15,8 +15,8 @@ export { default as LogoDarkImg } from "./logos/primary-dark.svg";
 export { default as LogoLightImg } from "./logos/primary-light.svg";
 export { default as LogoAltDarkImg } from "./logos/alternative-dark.svg";
 export { default as LogoAltLightImg } from "./logos/alternative-light.svg";
-export { default as LogoIconDarkImg } from "./logos/icon-dark.svg"; // just the gear
-export { default as LogoIconLightImg } from "./logos/icon-light.svg"; // just the gear
+export { default as LogoIconDarkImg } from "./logos/logo.png"; // just the gear
+export { default as LogoIconLightImg } from "./logos/logo.png"; // just the gear
 
 /* Social icons */
 export { default as SocialFacebookImg } from "./icons/book.svg";
@@ -64,14 +64,6 @@ export {
 export {
   default as LightbulbBalloonCloudsIllustrationImg
 } from "./illustrations/lightbulb-balloon-2.png";
-export {
-  default as BackgroundHeroImg
-} from "./hero/illustration-background.png";
-export { default as Middle1HeroImg } from "./hero/illustration-middle-1.png";
-export { default as Middle3HeroImg } from "./hero/illustration-middle-3.png";
-export {
-  default as ForegroundHeroImg
-} from "./hero/illustration-foreground.png";
 
 /* Headshots (leaders, htn team, etc) */
 export { default as AlexHackerHeadshotImg } from "./headshots/alex-hacker.jpg";
@@ -101,6 +93,7 @@ export {
   default as RecapVidButtonBackgroundImg
 } from "./photos/recap-video-button.png";
 export { default as GearBackgroundImg } from "./photos/gear.svg";
+export { default as Shanghai } from "./photos/shanghai.jpg";
 
 /* Activities */
 export { default as ActivityGradient } from "./photos/activity.png";

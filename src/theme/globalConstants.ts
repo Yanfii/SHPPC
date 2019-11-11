@@ -48,10 +48,10 @@ const globalConstants: GlobalConstants = {
   },
   fontSize: {
     // numbers instead of {n}px to allow us to dynamically resize
-    title: 64,
+    title: 60,
     largeHeading: 48,
     smallHeading: 40,
-    heading: 48,
+    heading: 40,
     tabletHeading: 34,
     heroHeadingMobile: 30,
     mobileHeading: 26,

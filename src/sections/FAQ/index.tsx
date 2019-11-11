@@ -20,9 +20,6 @@ const Body = styled.div`
   margin-top: 32px;
 `;
 
-const left = copy.faq.body.filter((question, i) => !(i % 2));
-const right = copy.faq.body.filter((question, i) => i % 2);
-
 const FAQ: React.FC = () => {
   const isMobile = useWindowWidth() <= 768;
   return (
@@ -31,14 +28,29 @@ const FAQ: React.FC = () => {
         {copy.faq.title}
       </Text>
       <Body>
-        {isMobile ? (
-          <Column questions={copy.faq.body} />
-        ) : (
-          <>
-            <Column questions={left} />
-            <Column questions={right} />
-          </>
-        )}
+        <Text as="h2" variant="sectionHeading">
+          {copy.faq.contact}
+        </Text>
+      </Body>
+      <Body>
+        <Text as="h2" variant="sectionHeading">
+          {copy.faq.fax}
+        </Text>
+      </Body>
+      <Body>
+        <Text as="h2" variant="sectionHeading">
+          {copy.faq.email}
+        </Text>
+      </Body>
+      <Body>
+        <Text as="h2" variant="sectionHeading">
+          {copy.faq.address}
+        </Text>
+      </Body>
+      <Body>
+        <Text as="h2" variant="sectionHeading">
+          {copy.faq.postal}
+        </Text>
       </Body>
     </FAQWrapper>
   );

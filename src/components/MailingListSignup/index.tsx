@@ -235,25 +235,6 @@ const MailingListSignUp = (props: MailingListSignUpProps) => {
     </PoseGroup>
   ) : (
     <>
-      <EmailForm footer={props.footer} onSubmit={signupForMailingList}>
-        <TextInput
-          placeholder={siteCopy.hero.emailPlaceholder}
-          onChange={handleChange}
-          value={email}
-          type="email"
-          required
-          variant={buttonVariant}
-          label={siteCopy.hero.emailPlaceholder}
-        />
-        <SignupButton
-          variant={`${buttonVariant}Rounded`}
-          onClick={() => null}
-          disabled={signUpState === "SUBMITTING"}
-        >
-          <Loader loading={signUpState === "SUBMITTING"} render={Loading} />
-          <Image src={Arrow} alt="arrow" show={signUpState !== "SUBMITTING"} />
-        </SignupButton>
-      </EmailForm>
       {buttonVariant === "duplicate" || buttonVariant === "error" ? (
         <PoseWrapper footer={props.footer}>
           <PoseGroup animateOnMount preEnterPose="before">

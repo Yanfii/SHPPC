@@ -1,6 +1,6 @@
 {
-  "name": "Hack the North",
-  "short_name": "Hack the North",
+  "name": "Shanghai Post Production Consulting Co.,Ltd",
+  "short_name": "SHPPC",
   "icons": [
       {
           "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
           "type": "image/png"
       }
   ],
-  "start_url": ".",  
+  "start_url": ".",
   "theme_color": "#eff8fa",
   "background_color": "#eff8fa",
   "display": "standalone"

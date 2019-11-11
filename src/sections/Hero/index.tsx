@@ -5,10 +5,7 @@ import SectionWrapper from "components/SectionWrapper";
 import MailingListSignup from "components/MailingListSignup";
 
 import GradientBg from "static/img/hero/gradient.svg";
-import IllustrationBg from "static/img/hero/illustration-background.png";
-import IllustrationFg from "static/img/hero/illustration-foreground.png";
-import IllustrationMiddle from "static/img/hero/illustration-middle-1.png";
-import IllustrationMiddle3 from "static/img/hero/illustration-middle-3.png";
+import Shanghai from "static/img/photos/shanghai.jpg";
 
 import Lottie from "react-lottie";
 import animationData from "sections/Hero/lottie.json";
@@ -19,6 +16,36 @@ import Parallax from "react-rellax";
 import { Text } from "@hackthenorth/north";
 
 import siteCopy from "copy";
+
+const ShanghaiWrapper = styled.div`
+  width: calc(100% + 140px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  margin-left: -70px;
+`;
+
+const ShanghaiIllustration = styled.img`
+  width: 100%;
+  opacity: 80%;
+  ${props => props.theme.mediaQueries.medium`
+    margin-bottom: 85px;
+  `}
+  ${props => props.theme.mediaQueries.mobile`
+    height: 125px;
+    margin-right: 0;
+  `}
+`;
+
+const Shanghailol = () => (
+  <ShanghaiWrapper>
+    <ShanghaiIllustration
+      src={siteCopy.about.shanghai}
+      alt="shanghai"
+    />
+  </ShanghaiWrapper>
+)
 
 const getWindowDimensions = () => {
   const { innerWidth: width, innerHeight: height } = window;
@@ -55,8 +82,10 @@ const HeroWrapper = styled(SectionWrapper)`
   max-height: 1500px;
   max-width: 100%;
   overflow: hidden;
-  background-image: url(${GradientBg});
-  background-position: 0 ${backgroundPercentage}%;
+  background-image: url(${Shanghai});
+  background-size: contain;
+  background-repeat: no-repeat;
+  opactiy: 80%;
 
   ${props => props.theme.mediaQueries.tablet`
     height: auto;
@@ -65,6 +94,10 @@ const HeroWrapper = styled(SectionWrapper)`
   ${props => props.theme.mediaQueries.tabletMobile`
     min-height: 100vh;
   `}
+
+  .shppctitle {
+    margin-bottom: 20px;
+  }
 
   & > .parallax {
     position: relative;
@@ -151,6 +184,7 @@ const MobileWrapper = styled.div`
   `}
 `;
 
+
 const style = {
   willChange: "transform"
 };
@@ -175,7 +209,11 @@ const Hero = () => {
 
   return (
     <HeroWrapper id="home">
+    CHANGE COLOUR HERE
       <Content>
+        <Text variant="header" as="h1" className="shppctitle">
+          {siteCopy.hero.name}
+        </Text>
         <Text variant="header" as="h1">
           {siteCopy.hero.firstLine}{" "}
           <TextLoop>
@@ -187,44 +225,7 @@ const Hero = () => {
         <Text variant="header" as="h1">
           {siteCopy.hero.secondLine}
         </Text>
-        <Text variant="subheader" as="p">
-          <span style={{ whiteSpace: "pre" }}>{siteCopy.hero.subtitle}</span>
-        </Text>
-        <MailingListSignup width={width} />
       </Content>
-      {width <= 768 ? (
-        <MobileWrapper className="parallax">
-          <Lottie options={mobileOptions} />
-          <ImageFg alt="" bottom={"auto"} src={IllustrationFg} />
-        </MobileWrapper>
-      ) : (
-        <>
-          <ParallaxWrapper className="parallax">
-            <Parallax speed={0} style={style}>
-              <Image alt="" left="100px" bottom="15px" src={IllustrationBg} />
-            </Parallax>
-            <Parallax style={style} speed={-1} data-rellax-max="50">
-              <Image alt="" src={IllustrationMiddle3} />
-            </Parallax>
-            <Parallax style={style} speed={-2} data-rellax-max="100">
-              <LottieWrapper>
-                <Lottie options={defaultOptions} />
-              </LottieWrapper>
-            </Parallax>
-            <Parallax style={style} speed={-2.5} data-rellax-max="198">
-              <Image alt="" bottom="-50px" src={IllustrationMiddle} />
-            </Parallax>
-          </ParallaxWrapper>
-          <Parallax
-            style={style}
-            className="parallax"
-            speed={width < 1100 ? -4.5 : -5}
-            data-rellax-max={width < 1100 ? 225 : 250}
-          >
-            <ImageFg alt="" bottom={"auto"} src={IllustrationFg} />
-          </Parallax>
-        </>
-      )}
     </HeroWrapper>
   );
 };

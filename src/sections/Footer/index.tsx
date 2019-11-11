@@ -132,24 +132,6 @@ const Footer = () => {
       <MailingWrapper>
         <MailingListSignup footer width={width} />
       </MailingWrapper>
-      <HeadshotWrapper>
-        <PoseGroup animateOnMount preEnterPose="before">
-          <Error key={1}>
-            <Text as="p" variant="headshotText">
-              {organizerText}
-            </Text>
-          </Error>
-        </PoseGroup>
-        <CarouselWrapper>
-          <InfiniteCarousel
-            itemWidth={90}
-            setOrganizerText={setOrganizerText}
-            items={copy.footer.team}
-            clearOrganizerText={clearOrganizerText}
-          />
-          <Fade />
-        </CarouselWrapper>
-      </HeadshotWrapper>
     </Wrapper>
   );
 };

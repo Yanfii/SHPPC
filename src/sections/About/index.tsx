@@ -7,7 +7,6 @@ import SectionWrapper from "components/SectionWrapper";
 import VideoModal from "components/VideoModal";
 
 import Gear, { GearConfigProps } from "./Gear";
-import RecapVideoButton from "./VideoButton";
 
 const aboutCopy = copy.about;
 
@@ -186,12 +185,6 @@ const About: React.FC = () => {
   return (
     <AboutWrapper id="about">
       {AboutTextBlock}
-      <RecapVideoButton
-        icon={aboutCopy.videoButton.icon}
-        text={aboutCopy.videoButton.text}
-        background={aboutCopy.videoButton.background}
-        toggleVideo={() => toggleVideo(true)}
-      />
       {isVideoOpen && (
         <VideoModal
           isVideoOpen={isVideoOpen}

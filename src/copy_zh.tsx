@@ -106,14 +106,13 @@ export default {
       light: LogoIconLightImg,
       dark: LogoIconDarkImg
     },
-    sections: ["About", "Inspection Flow", "Project", "Contact"],
+    sections: ["首页", "Inspection Flow", "Project", "联系我们"],
     socialLinks: [],
     languageButton: {
-      text: "语言"
+      text: "Language"
     }
   },
   hero: {
-    name: "Shanghai Post Production Consulting Co. Ltd",
     firstLine: "We provide",
     secondLine: "for the automotive industry.",
     keyWords: ["containment", "inspection", "training"],
@@ -147,7 +146,6 @@ export default {
     illustration: SponsorIllustrationImg
   },
   about: {
-    shanghai: Shanghai,
     title: "Shanghai Post Production Consulting Co.Ltd (PPC)",
     sentence1:
       "We are an ISO 9001 certified professional third party organization which provides containment, inspection, and training service for the automotive industry.",
@@ -292,11 +290,71 @@ export default {
   },
   faq: {
     title: "Contact us",
-    contact:"Phone: (0086) 1348-2265-101",
-    fax: "Fax: (021) 6160-0958",
-    email: "Email: freddyzhang@shppc.com",
-    address: "Address: Room 403, Building B, Wolcity Plaza, No 30, Lane 2419 HuNan Road, Shanghai, P.R.China",
-    postal: "Postal code: 201204"
+    body: [
+      {
+        question: "What is SHPPC?",
+        answer:
+          "SHPPC is Canada’s biggest hackathon, where 1,000 students of different skill levels come together from around the world to experiment and create unique software or hardware projects from scratch. We empower and enable teams to make something great in only 36 hours by providing an abundance of resources like workshops, mentors, sponsors, and hardware components."
+      },
+      {
+        question: "Who can participate?",
+        answer:
+          "Students of any education level from anywhere in the world are eligible to apply for SHPPC!"
+      },
+      {
+        question: "How much does it cost to attend SHPPC?",
+        answer:
+          "Admission to SHPPC is completely free. We also provide food and accommodation for the entire event and help out as much as we can with your transportation to and from the University of Waterloo!"
+      },
+      {
+        question: "How do I get to SHPPC?",
+        answer:
+          "We will be providing several buses from schools within driving distance of the University of Waterloo, as well as from nearby airports. For students who need to fly to SHPPC, we subsidize as much of your plane ticket as possible."
+      },
+      {
+        question: "How many people can be on a team?",
+        answer:
+          "You can form teams of up to 4 people. There are no restrictions for who they can be, so you can team up with hackers from any school, country, or experience level. Teams can be formed before or during the event."
+      },
+      {
+        question: "What if I've never been to a hackathon before?",
+        answer:
+          "SHPPC welcomes students of all skill levels. In previous years, 30% of students have attended SHPPC as their first hackathon. We’ll have talks, mentors and workshops to help you with your project; hackathons can be a great place to learn new skills in a short amount of time. Just be eager to learn, and excited to meet lots of awesome people."
+      },
+      {
+        question: "Can I start working on my hack before the event?",
+        answer:
+          "No. In the interest of fairness, students should not be working on their projects before SHPPC begins and we do not allow participants to work on pre-existing projects. However, you can familiarize yourself with all the tools and technologies you intend to use beforehand! Hardware will also be provided to hackers who fill out hardware request forms made available after they have been accepted to the event."
+      },
+      {
+        question:
+          "What kind of workshops, talks, and activities will there be?",
+        answer:
+          "Previously, we’ve held workshops and talks for a range of skill levels from beginner to advanced like Intro to Web Development and Team Building. We’ve also had introductory workshops to various programming tools such as APIs, databases and platforms. Activities like VR demos, meetups, and even karaoke happen throughout the weekend. Whether it’s for relaxation or health, novelty or competition, our team has something exciting prepared for you!"
+      },
+      {
+        question: "When will applications for SHPPC 2019 open?",
+        answer:
+          "They'll be opening in early June - follow us on social media to find out exactly when!"
+      },
+      {
+        question: "404: Question Not Found",
+        answer: (
+          <>
+            If your question is not listed here, please feel free to reach out
+            to us at{" "}
+            <Link href="mailto:hello@hackthenorth.com">
+              hello@hackthenorth.com
+            </Link>{" "}
+            or on{" "}
+            <Link href="https://www.facebook.com/hackthenorth" newTab>
+              Facebook
+            </Link>
+            .
+          </>
+        )
+      }
+    ]
   },
   footer: {
     img: Robogoose4IllustrationImg,

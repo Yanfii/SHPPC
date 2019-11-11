@@ -5,7 +5,12 @@ import useWindowWidth from "hooks/useWindowWidth";
 import useScrollDirection from "hooks/useScrollDirection";
 import SectionWrapper from "components/SectionWrapper";
 
-import copy from "copy";
+// import copy from "copy";
+import { getLocalizedCopy } from "components/getLocalizedCopy"
+import ReactFlagsSelect from 'react-flags-select';
+
+//import css module
+import 'react-flags-select/css/react-flags-select.css';
 
 import { UnstyledButton } from "@hackthenorth/north";
 import NavLinks from "./NavLinks";
@@ -75,8 +80,8 @@ const NavLogoButton = styled(UnstyledButton)`
 `;
 
 const NavLogoImg = styled.img`
-  width: 43px;
-  height: 43px;
+  width: 70px;
+  height: 70px;
   &:hover {
     opacity: 0.8;
   }
@@ -133,6 +138,7 @@ const NavBar: React.FC = () => {
   const scrollDirection = useScrollDirection();
   const [showMobileMenu, toggleMobileMenu] = useState(false);
   const [scrolledDown, setScrolledDown] = useState(false);
+  const [language, toggleLanguage] = useState("EN");
 
   const scrollTo = (id: string) => {
     toggleMobileMenu(false);
@@ -190,7 +196,7 @@ const NavBar: React.FC = () => {
           <NavLogoButton onClick={() => scrollTo("home")} variant="nav">
             <NavLogoImg
               alt=""
-              src={scrolledDown ? copy.nav.logo.light : copy.nav.logo.dark}
+              src={scrolledDown ? getLocalizedCopy("EN").nav.logo.light : getLocalizedCopy("EN").nav.logo.dark}
             />
           </NavLogoButton>
           <LinksContainer scrolledDown={scrolledDown}>
@@ -204,36 +210,37 @@ const NavBar: React.FC = () => {
             ) : (
               <>
                 <NavLinks
-                  sections={copy.nav.sections}
+                  sections={getLocalizedCopy("ZH").nav.sections}
                   clickHandler={scrollTo}
                 />
                 {!medium && (
                   <SocialLinks
-                    links={copy.nav.socialLinks}
+                    links={getLocalizedCopy("ZH").nav.socialLinks}
                     scrolledDown={scrolledDown}
                   />
                 )}
               </>
             )}
             {!mobile && (
-              <CallToActionButton
-                text={copy.nav.sponsorButton.text}
-                onClick={() => scrollTo("sponsors-cta")}
-                scrolledDown={scrolledDown}
-              />
+              <ReactFlagsSelect defaultCountry="CN"  countries={["CN", "US"]} customLabels={{"US": "English", "CN": "中文"}}/>
+              // <CallToActionButton
+              //   text={getLocalizedCopy("ZH").nav.languageButton.text}
+              //   onClick={() => toggleLanguage("ZH")}
+              //   scrolledDown={scrolledDown}
+              // />
             )}
           </LinksContainer>
           {showMobileMenu && (
             <MobileMenu>
               <NavLinks
                 animate
-                sections={copy.nav.sections}
+                sections={getLocalizedCopy("ZH").nav.sections}
                 clickHandler={scrollTo}
               />
               <SocialLinks
                 scrolledDown={false}
                 animate
-                links={copy.nav.socialLinks}
+                links={getLocalizedCopy("ZH").nav.socialLinks}
               />
             </MobileMenu>
           )}
