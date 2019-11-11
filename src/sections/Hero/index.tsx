@@ -40,12 +40,9 @@ const ShanghaiIllustration = styled.img`
 
 const Shanghailol = () => (
   <ShanghaiWrapper>
-    <ShanghaiIllustration
-      src={siteCopy.about.shanghai}
-      alt="shanghai"
-    />
+    <ShanghaiIllustration src={siteCopy.about.shanghai} alt="shanghai" />
   </ShanghaiWrapper>
-)
+);
 
 const getWindowDimensions = () => {
   const { innerWidth: width, innerHeight: height } = window;
@@ -78,14 +75,13 @@ const backgroundPercentage = hour * (100 / 24);
 
 const HeroWrapper = styled(SectionWrapper)`
   padding-top: 70px;
-  min-height: 1200px;
   max-height: 1500px;
   max-width: 100%;
   overflow: hidden;
   background-image: url(${Shanghai});
-  background-size: contain;
+  background-size: auto 100vh;
   background-repeat: no-repeat;
-  opactiy: 80%;
+  opacity: 80%;
 
   ${props => props.theme.mediaQueries.tablet`
     height: auto;
@@ -184,7 +180,6 @@ const MobileWrapper = styled.div`
   `}
 `;
 
-
 const style = {
   willChange: "transform"
 };
@@ -209,7 +204,7 @@ const Hero = () => {
 
   return (
     <HeroWrapper id="home">
-    CHANGE COLOUR HERE
+      CHANGE COLOUR HERE
       <Content>
         <Text variant="header" as="h1" className="shppctitle">
           {siteCopy.hero.name}
