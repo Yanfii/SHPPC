@@ -6,11 +6,11 @@ import useScrollDirection from "hooks/useScrollDirection";
 import SectionWrapper from "components/SectionWrapper";
 
 // import copy from "copy";
-import { getLocalizedCopy } from "components/getLocalizedCopy"
-import ReactFlagsSelect from 'react-flags-select';
+import { getLocalizedCopy } from "components/getLocalizedCopy";
+import ReactFlagsSelect from "react-flags-select";
 
 //import css module
-import 'react-flags-select/css/react-flags-select.css';
+import "react-flags-select/css/react-flags-select.css";
 
 import { UnstyledButton } from "@hackthenorth/north";
 import NavLinks from "./NavLinks";
@@ -49,7 +49,7 @@ const NavBarContainer = styled.nav<NavBarProps>`
   transition: all 250ms ease;
   position: ${props => (props.scrolledDown ? "fixed" : "absolute")};
   background-color: ${({ scrolledDown, theme }) =>
-    scrolledDown ? theme.globalConstants.color.textDark : "transparent"};
+    scrolledDown ? theme.globalConstants.color.textLight : "transparent"};
   transform: ${({ hidden }) =>
     hidden ? "translateY(-70px)" : "translateY(0)"};
 
@@ -91,10 +91,8 @@ const LinksContainer = styled.div<ScrolledDownProps>`
   display: flex;
   align-items: center;
   margin-left: auto;
-  color: ${({ scrolledDown, theme }) =>
-    scrolledDown
-      ? theme.globalConstants.color.textLight
-      : theme.globalConstants.color.textDark};
+  color: ${({ theme }) => theme.globalConstants.color.textDark};
+  font-family: ${props => props.theme.globalConstants.fontFamily.text};
 `;
 
 const MobileMenu = styled.div`
@@ -196,7 +194,11 @@ const NavBar: React.FC = () => {
           <NavLogoButton onClick={() => scrollTo("home")} variant="nav">
             <NavLogoImg
               alt=""
-              src={scrolledDown ? getLocalizedCopy("EN").nav.logo.light : getLocalizedCopy("EN").nav.logo.dark}
+              src={
+                scrolledDown
+                  ? getLocalizedCopy("EN").nav.logo.light
+                  : getLocalizedCopy("EN").nav.logo.dark
+              }
             />
           </NavLogoButton>
           <LinksContainer scrolledDown={scrolledDown}>
@@ -222,7 +224,11 @@ const NavBar: React.FC = () => {
               </>
             )}
             {!mobile && (
-              <ReactFlagsSelect defaultCountry="CN"  countries={["CN", "US"]} customLabels={{"US": "English", "CN": "中文"}}/>
+              <ReactFlagsSelect
+                defaultCountry="CN"
+                countries={["CN", "US"]}
+                customLabels={{ US: "English", CN: "中文" }}
+              />
               // <CallToActionButton
               //   text={getLocalizedCopy("ZH").nav.languageButton.text}
               //   onClick={() => toggleLanguage("ZH")}
