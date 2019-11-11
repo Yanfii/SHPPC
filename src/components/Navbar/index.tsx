@@ -222,7 +222,7 @@ const NavBar: React.FC = () => {
               </>
             )}
             {!mobile && (
-              <ReactFlagsSelect defaultCountry="CN"  countries={["CN", "US"]} customLabels={{"US": "English", "CN": "中文"}}/>
+              <ReactFlagsSelect defaultCountry="CN" countries={["CN", "US"]} customLabels={{"US": "English", "CN": "中文"}}/>
               // <CallToActionButton
               //   text={getLocalizedCopy("ZH").nav.languageButton.text}
               //   onClick={() => toggleLanguage("ZH")}
