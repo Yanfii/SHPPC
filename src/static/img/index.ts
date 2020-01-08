@@ -93,7 +93,7 @@ export {
   default as RecapVidButtonBackgroundImg
 } from "./photos/recap-video-button.png";
 export { default as GearBackgroundImg } from "./photos/gear.svg";
-export { default as Shanghai } from "./photos/shanghai.jpg";
+export { default as Shanghai } from "./photos/shanghai.png";
 
 /* Activities */
 export { default as ActivityGradient } from "./photos/activity.png";

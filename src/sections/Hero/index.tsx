@@ -4,8 +4,7 @@ import styled from "styled-components";
 import SectionWrapper from "components/SectionWrapper";
 import MailingListSignup from "components/MailingListSignup";
 
-import GradientBg from "static/img/hero/gradient.svg";
-import Shanghai from "static/img/photos/shanghai.jpg";
+import Shanghai from "static/img/photos/shanghai.png";
 
 import Lottie from "react-lottie";
 import animationData from "sections/Hero/lottie.json";
@@ -40,12 +39,9 @@ const ShanghaiIllustration = styled.img`
 
 const Shanghailol = () => (
   <ShanghaiWrapper>
-    <ShanghaiIllustration
-      src={siteCopy.about.shanghai}
-      alt="shanghai"
-    />
+    <ShanghaiIllustration src={siteCopy.about.shanghai} alt="shanghai" />
   </ShanghaiWrapper>
-)
+);
 
 const getWindowDimensions = () => {
   const { innerWidth: width, innerHeight: height } = window;
@@ -78,14 +74,13 @@ const backgroundPercentage = hour * (100 / 24);
 
 const HeroWrapper = styled(SectionWrapper)`
   padding-top: 70px;
-  min-height: 1200px;
   max-height: 1500px;
   max-width: 100%;
   overflow: hidden;
   background-image: url(${Shanghai});
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  opactiy: 80%;
+  background-position: center;
 
   ${props => props.theme.mediaQueries.tablet`
     height: auto;
@@ -184,7 +179,6 @@ const MobileWrapper = styled.div`
   `}
 `;
 
-
 const style = {
   willChange: "transform"
 };
@@ -209,7 +203,6 @@ const Hero = () => {
 
   return (
     <HeroWrapper id="home">
-    CHANGE COLOUR HERE
       <Content>
         <Text variant="header" as="h1" className="shppctitle">
           {siteCopy.hero.name}

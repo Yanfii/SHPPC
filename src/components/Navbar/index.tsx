@@ -6,17 +6,16 @@ import useScrollDirection from "hooks/useScrollDirection";
 import SectionWrapper from "components/SectionWrapper";
 
 // import copy from "copy";
-import { getLocalizedCopy } from "components/getLocalizedCopy"
-import ReactFlagsSelect from 'react-flags-select';
+import { getLocalizedCopy } from "components/getLocalizedCopy";
+import ReactFlagsSelect from "react-flags-select";
 
 //import css module
-import 'react-flags-select/css/react-flags-select.css';
+import "react-flags-select/css/react-flags-select.css";
 
 import { UnstyledButton } from "@hackthenorth/north";
 import NavLinks from "./NavLinks";
 import SocialLinks from "./SocialLinks";
 import MenuIcon from "./MenuIcon";
-import CallToActionButton from "./CallToActionButton";
 import { animateInMenu, animateOutMenu } from "./animations";
 
 import throttle from "lodash.throttle";
@@ -91,10 +90,31 @@ const LinksContainer = styled.div<ScrolledDownProps>`
   display: flex;
   align-items: center;
   margin-left: auto;
+
+  font-family: ${props => props.theme.globalConstants.fontFamily.text};
   color: ${({ scrolledDown, theme }) =>
     scrolledDown
       ? theme.globalConstants.color.textLight
       : theme.globalConstants.color.textDark};
+`;
+
+const LanguageContainer = styled.div<ScrolledDownProps>`
+  margin-left: 32px;
+  .flag-select {
+    color: ${({ scrolledDown, theme }) =>
+      scrolledDown
+        ? theme.globalConstants.color.textLight
+        : theme.globalConstants.color.textDark};
+  }
+  .flag-options {
+    background-color: ${({ scrolledDown, theme }) =>
+      scrolledDown
+        ? theme.globalConstants.color.textDark
+        : theme.globalConstants.color.textLight} !important;
+  }
+  ${props => props.theme.mediaQueries.tablet`
+    margin-right: 65px;
+  `}
 `;
 
 const MobileMenu = styled.div`
@@ -138,7 +158,6 @@ const NavBar: React.FC = () => {
   const scrollDirection = useScrollDirection();
   const [showMobileMenu, toggleMobileMenu] = useState(false);
   const [scrolledDown, setScrolledDown] = useState(false);
-  const [language, toggleLanguage] = useState("EN");
 
   const scrollTo = (id: string) => {
     toggleMobileMenu(false);
@@ -186,6 +205,10 @@ const NavBar: React.FC = () => {
     smoothscroll.polyfill();
   }, []);
 
+  const test = ((countryCode: string) => {
+    console.log("select", countryCode)
+  })
+
   return (
     <RelativeWrapper>
       <NavBarContainer
@@ -196,7 +219,11 @@ const NavBar: React.FC = () => {
           <NavLogoButton onClick={() => scrollTo("home")} variant="nav">
             <NavLogoImg
               alt=""
-              src={scrolledDown ? getLocalizedCopy("EN").nav.logo.light : getLocalizedCopy("EN").nav.logo.dark}
+              src={
+                scrolledDown
+                  ? getLocalizedCopy("EN").nav.logo.light
+                  : getLocalizedCopy("EN").nav.logo.dark
+              }
             />
           </NavLogoButton>
           <LinksContainer scrolledDown={scrolledDown}>
@@ -222,12 +249,14 @@ const NavBar: React.FC = () => {
               </>
             )}
             {!mobile && (
-              <ReactFlagsSelect defaultCountry="CN" countries={["CN", "US"]} customLabels={{"US": "English", "CN": "中文"}}/>
-              // <CallToActionButton
-              //   text={getLocalizedCopy("ZH").nav.languageButton.text}
-              //   onClick={() => toggleLanguage("ZH")}
-              //   scrolledDown={scrolledDown}
-              // />
+              <LanguageContainer scrolledDown={scrolledDown}>
+                <ReactFlagsSelect
+                  defaultCountry="CN"
+                  countries={["CN", "US"]}
+                  customLabels={{ US: "English", CN: "中文" }}
+                  onSelect={test}
+                />
+                </LanguageContainer>
             )}
           </LinksContainer>
           {showMobileMenu && (
