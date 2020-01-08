@@ -81,6 +81,10 @@ const HeroWrapper = styled(SectionWrapper)`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+<<<<<<< HEAD
+=======
+  opacity: 80%;
+>>>>>>> 14b2fcf1e671bba7b9ec2841fcb3a87d297d5214
 
   ${props => props.theme.mediaQueries.tablet`
     height: auto;

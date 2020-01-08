@@ -18,9 +18,9 @@ export const LanguageProvider: React.FC = ({ children }) => {
   const updateLanguage = (newLanguage: string): void => {
     updateStateLanguage(newLanguage);
   }
-
+  const language = 'ZH'
   const languageState: LanguageState = {
-    'ZH',
+    language,
     updateLanguage,
   };
 
