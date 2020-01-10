@@ -14,11 +14,12 @@ export const LanguageContext: React.Context<LanguageState> = createContext({
 export const useLanguageContext = () => useContext(LanguageContext);
 
 export const LanguageProvider: React.FC = ({ children }) => {
-  const [stateLanguage, updateStateLanguage] = useState('ZH')
-  const updateLanguage = (newLanguage: string): void => {
+  const [stateLanguage, updateStateLanguage] = useState<string>();
+    const updateLanguage = (newLanguage: string): void => {
     updateStateLanguage(newLanguage);
   }
-  const language = 'ZH'
+  const language: string = 'ZH';
+
   const languageState: LanguageState = {
     language,
     updateLanguage,
